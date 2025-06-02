@@ -4,4 +4,3 @@ After completing all the steps in the project, automatic tests will become avail
 
 The hexlet-check.yml file is responsible for running these tests - do not delete this file, edit it, or rename the repository.
 
-https://frontend-project-11-xi-ten.vercel.app/
