@@ -1,0 +1,36 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "[![Actions Status](https://github.com/NastyaSia04/frontend-project-11/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/NastyaSia04/frontend-project-11/actions)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NastyaSia04/frontend-project-11.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NastyaSia04/frontend-project-11/issues"
+  },
+  "homepage": "https://github.com/NastyaSia04/frontend-project-11#readme",
+  "devDependencies": {
+    "@eslint/create-config": "^1.9.0",
+    "@eslint/js": "^9.28.0",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
+    "sass": "^1.89.1",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.6"
+  }
+}
