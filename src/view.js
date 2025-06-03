@@ -1,7 +1,7 @@
 import { validateFeedUrl } from "./validation/validateFeedUrl";
 
 
-export default function view(state) {
+export default function view(state, translate) {
     const elements = {
         input: document.querySelector('#url-input'),
         form: document.querySelector('.rss-form'),
@@ -17,7 +17,7 @@ export default function view(state) {
 
         const value = elements.input.value;
 
-        validateFeedUrl(value, state.feeds).then(() => {
+        validateFeedUrl(value, state.feeds, translate).then(() => {
             state.feeds.push(value);
             clearError();
         }).catch(err => {  

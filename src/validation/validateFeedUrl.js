@@ -1,17 +1,22 @@
 import * as yup from 'yup';
 
-export function validateFeedUrl (url, prevUrlList = []) {
-    const errorTexts = {
-        required: 'Поле обязательно для заполнения',
-        url: 'Ссылка должна быть валидным URL',
-        notOneOf: 'RSS уже существует'
-    }
+export function validateFeedUrl (url, prevUrlList, translate) { 
+
+    yup.setLocale({
+        string: {
+            url: translate('errors.url')
+        },
+        mixed: {
+            required: translate('errors.required'),
+            notOneOf: translate('errors.notOneOf')
+        }
+    })
 
     const validator = yup 
                         .string()
-                        .url(errorTexts.url)
-                        .required(errorTexts.required)
-                        .notOneOf(prevUrlList, errorTexts.notOneOf);
+                        .url()
+                        .required()
+                        .notOneOf(prevUrlList);
 
     return validator.validate(url);
 }
