@@ -12,11 +12,13 @@ export default function init() {
         resources: {
             ru,
         }
-    })
+    });
+    
     console.log('init');
 
     const state = {
         feeds: [],
+        posts: [],
     }
 
     const listeners = {
