@@ -20,30 +20,22 @@ const drawPost = (elements, post) => {
     const button = el.querySelector('button');
     button['data-id'] = post.id;
     button.addEventListener('click', () => {
-        // TODO 
+        // TODO
     })
     elements.postsContainer.append(el);
 }
 
 const drawFeeds = (elements, feeds) => {
+    elements.feedsContainer.innerHTML = '';
     feeds.forEach(feed => drawFeed(elements, feed)); 
 }
 
 const drawPosts = (elements, posts) => {
+    elements.postsContainer.innerHTML = '';
     posts.forEach(post => drawPost(elements, post));
 }
 
 
-const updateData = (state) => {
-    const { feeds, posts } = state;
-
-    Promise.all(
-        feeds.map(feed => fetchFeed(feed.url).then(({ data }) => {
-            const { posts } = parseRss(data.contents);
-            const prevPosts = posts.filter;
-        }))
-    )
-}
 
 export default function view(state, listeners, translate) {
     const elements = {
@@ -62,8 +54,7 @@ export default function view(state, listeners, translate) {
     toggleHidden(elements.feedsContainer, true);
     toggleHidden(elements.postsContainer, true);
 
-    function renderFeeds(feeds) {
-        console.log('renderFeeds', feeds);
+    function renderFeeds(feeds) { 
         const feedsExists = feeds.length > 0;
         toggleHidden(elements.feedsContainer, !feedsExists);
 
@@ -72,8 +63,7 @@ export default function view(state, listeners, translate) {
         }
     }
 
-    function renderPosts(posts) {
-        console.log('renderPosts', posts);
+    function renderPosts(posts) { 
         const postsExists = posts.length > 0;
         toggleHidden(elements.postsContainer, !postsExists);
 
@@ -94,9 +84,6 @@ export default function view(state, listeners, translate) {
                 break;
         }
     });
-
-  
-
 
     const clearError = () => {
         elements.error.textContent = '';

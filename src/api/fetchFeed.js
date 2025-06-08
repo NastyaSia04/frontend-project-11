@@ -6,5 +6,6 @@ export function fetchFeed(url) {
     const urlWithoutCache = new URL(PROXY_URL);
     urlWithoutCache.searchParams.set('url', url);
     urlWithoutCache.searchParams.set('disable_cache', 'true');
+    urlWithoutCache.searchParams.set('disableCache', 'true');
     return axios.get(urlWithoutCache.href);
 } 

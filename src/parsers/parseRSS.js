@@ -1,5 +1,4 @@
-export function parseRss(rss) {
-    console.log("init", rss)
+export function parseRss(rss) { 
     const parsed = new DOMParser().parseFromString(rss, "application/xml");
     const error = parsed.querySelector('parsererror');
 
