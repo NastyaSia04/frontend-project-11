@@ -1,11 +1,22 @@
-import view from "./view";
-import model from './model';
+import view from "./view"; 
 import i18next from "i18next";
 import ru from './locales/ru';
 import { validateFeedUrl } from "./validation/validateFeedUrl";
 import { fetchFeed } from "./api/fetchFeed";
 import { parseRss } from "./parsers/parseRSS";
 
+function getErrorText(error, translate) {
+    console.log('error', error);
+    if (error.name === 'ValidationError') {
+        return error.message;
+    }
+    if (error.name === 'AxiosError') {
+        return translate('errors.networkError');
+    }
+    if (error.name === 'XMLParseError') {
+        return translate('errors.noValidRSS');
+    }
+}
 
 const updateData = (state) => { 
     const { feeds, posts: oldPostsAll } = state;
@@ -34,6 +45,10 @@ export default function init() {
         }
     }); 
 
+    const translate = (key) => {
+        return i18n.t(key);
+    } 
+
     const state = {
         feeds: [],
         posts: [],
@@ -43,7 +58,7 @@ export default function init() {
 
     const listeners = {
         onCreateFeed: (watchedState, url) => {
-            return validateFeedUrl(url, watchedState.feeds, translate)
+            return validateFeedUrl(url, watchedState.feeds.map(feed => feed.url), translate)
                 .then(() => fetchFeed(url))
                 .then(({ data }) => {
                     const { feed, posts } = parseRss(data.contents);
@@ -52,12 +67,9 @@ export default function init() {
                     watchedState.feeds.push(feedWithId);
                     watchedState.posts.push(...postsWithId);
                 })
+                .catch(error => {throw new Error(getErrorText(error, translate))});
         }
     }
-
-    const translate = (key) => {
-        return i18n.t(key);
-    } 
 
     const watchedState = view(state, listeners, translate);
 

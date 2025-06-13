@@ -60,7 +60,7 @@ export default function view(state, listeners, translate) {
     const elements = {
         input: document.querySelector('#url-input'),
         form: document.querySelector('.rss-form'),
-        error: document.querySelector('.feedback'),
+        feedback: document.querySelector('.feedback'),
         feedsAndPostsContainer: document.querySelector('.feeds-and-posts'),
         feedItemTemplate: document.querySelector('#feedItem'),
         postItemTemplate: document.querySelector('#postItem'),
@@ -130,9 +130,17 @@ export default function view(state, listeners, translate) {
         }
     })
 
-    const clearError = () => {
-        elements.error.textContent = '';
+    const showSuccess = () => {
+        elements.feedback.textContent = translate('success');
+        elements.feedback.classList.add('text-success');
+        elements.feedback.classList.remove('text-danger');
     };
+
+    const showError = (errorMsg) => {
+        elements.feedback.textContent = errorMsg;
+        elements.feedback.classList.add('text-danger');
+        elements.feedback.classList.remove('text-success');
+    }
 
     elements.form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -140,10 +148,8 @@ export default function view(state, listeners, translate) {
         const value = elements.input.value;
 
         listeners.onCreateFeed(watchedState,value)
-            .then(clearError)
-            .catch(err => {
-                elements.error.textContent = err.message;
-            });
+            .then(showSuccess)
+            .catch(err => showError(err.message));
     })
 
    return watchedState;
