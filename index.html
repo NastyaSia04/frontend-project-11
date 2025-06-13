@@ -9,6 +9,24 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-break"></div>
+            <div class="modal-footer">
+                <a class="btn btn-primary full-article" role="button" target="_blank" rel="noopener noreferrer">
+                Читать полностью
+                </a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <main class="flex-grow-1">
         <section class="container-fluid bg-dark p-5">
             <div class="row">
@@ -35,24 +53,7 @@
                     <p class="feedback m-0 position-absolute small text-danger"></p>
                 </div>
             </div>
-        </section>
-
-        <!-- post example -->
-
-        <!-- <li class="list-group-item d-flex justify-content-between align-items-start border-0 border-end-0">
-            <a href="http://example.com/test/1748964780" class="fw-bold" data-id="13" target="_blank"
-                rel="noopener noreferrer">Lorem ipsum
-                2025-06-03T15:33:00Z</a>
-            <button type="button" class="btn btn-outline-primary btn-sm" data-id="13" data-bs-toggle="modal"
-                data-bs-target="#modal">Просмотр</button>
-        </li> -->
-
-        <!-- feed example -->
-
-        <!-- <li class="list-group-item border-0 border-end-0">
-            <h3 class="h6 m-0">Lorem ipsum feed for an interval of 1 minutes with 10 item(s)</h3>
-            <p class="m-0 small text-black-50">This is a constantly updating lorem ipsum feed</p>
-        </li> -->
+        </section> 
 
         <section class="container-fluid container-xxl p-5 feeds-and-posts">
             <div class="row">
@@ -87,10 +88,10 @@
     </template>
 
     <template id="postItem">
-        <li class="list-group-item d-flex justify-content-between align-items-start border-0 border-end-0 p-2">
-            <a class="fw-bold" data-id="13" target="_blank"
+        <li data-postid="0" class="list-group-item d-flex justify-content-between align-items-start border-0 border-end-0 p-2">
+            <a class="fw-bold" target="_blank"
                 rel="noopener noreferrer"></a>
-            <button type="button" class="btn btn-outline-primary btn-sm" data-id="13" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
                 data-bs-target="#modal">Просмотр</button>
         </li>
     </template>

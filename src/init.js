@@ -37,6 +37,8 @@ export default function init() {
     const state = {
         feeds: [],
         posts: [],
+        openedPosts: [],
+        openedPostId: null
     }
 
     const listeners = {
