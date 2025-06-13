@@ -3,5 +3,8 @@
 
 https://frontend-project-11-xi-ten.vercel.app/
 
+Description:
 
+This is the third eductional project at Hexlet.
+It's called the RSS agregator.
 RSS is a specialized format designed to describe news feeds, article announcements, and other materials.
