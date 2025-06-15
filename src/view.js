@@ -134,6 +134,7 @@ export default function view(state, listeners, translate) {
         elements.feedback.textContent = translate('success');
         elements.feedback.classList.add('text-success');
         elements.feedback.classList.remove('text-danger');
+        elements.input.value = '';
     };
 
     const showError = (errorMsg) => {
