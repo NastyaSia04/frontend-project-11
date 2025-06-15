@@ -5,9 +5,9 @@
 
 https://frontend-project-11-xi-ten.vercel.app/
 
-## Description:
+#### Description:
 
-This is the third eductional project at Hexlet.
+This is the third educational project at Hexlet.
 
 It's called the **RSS aggregator**.
 
