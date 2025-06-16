@@ -21,7 +21,7 @@ const drawPost = (elements, post, alreadyViewed) => {
   link.textContent = post.title
   link.dataset.id = post.id
   if (alreadyViewed) {
-    link.classList.add('fw-normal', "link-secondary")
+    link.classList.add('fw-normal', 'link-secondary')
   }
   const button = el.querySelector('button')
   button.dataset.id = post.id
@@ -92,7 +92,7 @@ export default function view(state, listeners, translate) {
 
     if (postsExists) {
       drawPosts(elements, posts, openedPosts)
-    }  
+    }
   }
 
   const watchedState = onChange(state, function (path, value) {

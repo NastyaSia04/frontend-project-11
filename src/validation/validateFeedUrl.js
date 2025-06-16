@@ -1,7 +1,6 @@
 import * as yup from 'yup'
 
 export function validateFeedUrl(url, prevUrlList, translate) {
-
   yup.setLocale({
     string: {
       url: translate('errors.url'),
