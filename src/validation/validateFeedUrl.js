@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export function validateFeedUrl (url, prevUrlList, translate) {
+export function validateFeedUrl(url, prevUrlList, translate) {
 
   yup.setLocale({
     string: {
@@ -13,10 +13,10 @@ export function validateFeedUrl (url, prevUrlList, translate) {
   })
 
   const validator = yup
-        .string()
-        .url()
-        .required()
-        .notOneOf(prevUrlList)
+    .string()
+    .url()
+    .required()
+    .notOneOf(prevUrlList)
 
   return validator.validate(url)
 }
