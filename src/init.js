@@ -8,7 +8,7 @@ import { parseRss } from './parsers/parseRSS'
 function getErrorText(error, translate) {
   console.log('error', error)
   if (error.name === 'ValidationError') {
-    return error.message;
+    return error.message
   }
   if (error.name === 'AxiosError') {
     return translate('errors.networkError')
@@ -35,7 +35,6 @@ const updateData = (state) => {
 }
 
 export default function init() {
-
   const i18n = i18next.createInstance()
 
   i18n.init({
@@ -68,7 +67,7 @@ export default function init() {
           watchedState.posts.push(...postsWithId)
         })
         .catch((error) => { throw new Error(getErrorText(error, translate)) })
-    }
+    },
   }
 
   const watchedState = view(state, listeners, translate)

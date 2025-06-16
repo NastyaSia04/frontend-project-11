@@ -1,5 +1,4 @@
-import './scss/styles.scss';
-import * as bootstrap from 'bootstrap'
-import init from './init';
+import './scss/styles.scss'
+import init from './init'
 
-init();
+init()
